@@ -1,0 +1,13 @@
+{{extend 'layout.html'}}
+
+<h2>Todos las IPS</h2>
+<a class="btn btn-primary"href='nuevo'>Nueva IP</a>
+
+    
+<table class="table table-striped">
+    <tr><th> Nombre</th><th> Libre</th><th> Rango</th></tr>
+    
+{{for row in ip:}}
+<tr><td>{{=row.nombre}}</td><td><a href="{{=URL( 'ver',args=row.id)}}">{{=row.libre}}</td><td>{{=row.rango}}</td></tr>
+{{pass}}
+</table>

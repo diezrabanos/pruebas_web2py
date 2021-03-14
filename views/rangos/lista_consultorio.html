@@ -1,0 +1,17 @@
+{{extend 'layout.html'}}
+{{#if db.consultorio.nombre.count()>0:}}
+{{#=db.consultorio.nombre.count()}}
+
+<h2>Todos los rangos del consultorio {{=db.consultorio[1].nombre}}</h2>
+{{pass}}
+
+
+<!-- poner aqui el nombre del consultorio al que hace pertenece-->
+<a class="btn btn-primary" href="{{=URL( 'rangos','nuevo')}}">Nuevo rango</a>
+<table class="table table-striped">
+    <tr><th> Nombre</th><th> Mascara</th></tr>
+    
+{{for row in rango:}}
+<tr><td><a href="{{=URL( 'ver',args=row.id)}}">{{=row.nombre}}</a></td><td>{{=row.mascara}}</td></tr>
+{{pass}}
+</table>

@@ -1,0 +1,17 @@
+{{extend 'layout.html'}}
+{{#if db.consultorio.nombre.count()>0:}}
+{{#=db.consultorio.nombre.count()}}
+
+<h2>Todos los consultorios del centro {{=centro_nombre}}</h2>
+{{pass}}
+
+
+<!-- poner aqui el nombre del centro al que hace pertenece-->
+<a class="btn btn-primary" href="{{=URL( 'consultorios','nuevo')}}">Nuevo consultorio</a>
+<table class="table table-striped">
+    <tr><th> Código GAP</th><th> Nombre</th></tr>
+    
+{{for row in consultorio:}}
+<tr><td>{{=row.codigo_gap}}</td><td><a href="{{=URL( 'ver',args=row.id)}}">{{=row.nombre}}</td></tr>
+{{pass}}
+</table>

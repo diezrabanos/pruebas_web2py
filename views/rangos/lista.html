@@ -1,0 +1,13 @@
+{{extend 'layout.html'}}
+
+<h2>Todos los rangos</h2>
+<a class="btn btn-primary"href='nuevo'>Nuevo rango</a>
+
+    
+<table class="table table-striped">
+    <tr><th> Nombre</th><th> Mascara</th></tr>
+    
+{{for row in rango:}}
+<tr><td>{{=row.nombre}}</td><td><a href="{{=URL( 'ver',args=row.id)}}">{{=row.mascara}}</td></tr>
+{{pass}}
+</table>

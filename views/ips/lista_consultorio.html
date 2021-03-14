@@ -1,0 +1,17 @@
+{{extend 'layout.html'}}
+{{#if db.consultorio.nombre.count()>0:}}
+{{#=db.consultorio.nombre.count()}}
+
+<h2>Todos los puestos del consultorio {{=db.consultorio[1].nombre}}</h2>
+{{pass}}
+
+
+<!-- poner aqui el nombre del consultorio al que hace pertenece-->
+<a class="btn btn-primary" href="{{=URL( 'puestos','nuevo')}}">Nuevo puesto</a>
+<table class="table table-striped">
+    <tr><th> Nombre</th><th> Profesional</th><th> Telefono</th><th> IP</th></tr>
+    
+{{for row in puesto:}}
+<tr><td><a href="{{=URL( 'ver',args=row.id)}}">{{=row.nombre}}</a></td><td>{{=row.profesional}}</td><td>{{=row.telefono}}</td><td>{{=row.ip}}</td></tr>
+{{pass}}
+</table>

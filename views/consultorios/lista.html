@@ -1,0 +1,11 @@
+{{extend 'layout.html'}}
+
+<h2>Todos los consultorios</h2>
+<a class="btn btn-primary"href='nuevo'>Nuevo consultorio</a>
+<table class="table table-striped">
+    <tr><th> Código GAP</th><th> Nombre</th></tr>
+    
+{{for row in consultorio:}}
+<tr><td>{{=row.codigo_gap}}</td><td><a href="{{=URL('ver',args=row.id)}}">{{=row.nombre}}</td></tr>
+{{pass}}
+</table>
